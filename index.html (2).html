@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tag 01 — رحلتك الألمانية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5FB;
+  --bg-elevated:#FFFFFF;
+  --bg-card:#FFFFFF;
+  --bg-card-hover:#EEF2FB;
+  --text:#1B2440;
+  --text-dim:#54617E;
+  --text-faint:#8792AC;
+  --gold:#C9930A;
+  --gold-bright:#F2B705;
+  --gold-dim:#8a6c1f;
+  --red:#C23A50;
+  --teal:#0E8F88;
+  --success:#1E9C63;
+  --error:#D23C52;
+  --border:rgba(27,36,64,0.10);
+  --border-strong:rgba(27,36,64,0.20);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-size:17px;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(242,183,5,0.10), transparent),
+    radial-gradient(1000px 500px at 100% 0%, rgba(14,143,136,0.07), transparent),
+    var(--bg);
+  color:var(--text);
+  font-family:'Cairo','Inter',sans-serif;
+  line-height:1.7;
+  min-height:100vh;
+  padding-bottom:80px;
+}
+.de{font-family:'Space Grotesk','Inter',sans-serif;}
+.mono{font-family:'JetBrains Mono',monospace;}
+
+/* ---------- Ticket / Boarding-pass header (signature element) ---------- */
+.ticket{
+  max-width:920px;
+  margin:28px auto 40px;
+  background:linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+  border:1px solid var(--border-strong);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 50px -22px rgba(27,36,64,0.22);
+  animation:fadeUp 1.4s ease;
+}
+@keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+.ticket-top{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 28px; flex-wrap:wrap; gap:14px;
+}
+.ticket-brand{display:flex; align-items:center; gap:12px;}
+.ticket-brand .flag{width:34px; height:24px; border-radius:3px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 0 0 1px rgba(27,36,64,0.15);}
+.ticket-brand .flag div{flex:1;}
+.ticket-brand h1{font-size:16.5px; margin:0; letter-spacing:.08em; color:var(--text-dim); font-weight:600; text-transform:uppercase;}
+.ticket-brand small{display:block; color:var(--text-faint); font-size:12.5px; margin-top:2px;}
+.ticket-day{
+  font-family:'JetBrains Mono',monospace; text-align:left; direction:ltr;
+}
+.ticket-day .num{font-size:42px; font-weight:700; color:var(--gold); line-height:1;}
+.ticket-day .lbl{font-size:11px; color:var(--text-faint); letter-spacing:.15em;}
+.perforation{
+  position:relative; height:0; border-top:2px dashed var(--border-strong); margin:0 24px;
+}
+.perforation::before, .perforation::after{
+  content:''; position:absolute; top:-11px; width:22px; height:22px; background:var(--bg); border-radius:50%;
+}
+.perforation::before{left:-33px;}
+.perforation::after{right:-33px;}
+.ticket-bottom{padding:22px 28px 26px;}
+.ticket-title{font-family:'Space Grotesk',sans-serif; font-size:31px; font-weight:700; margin:0 0 6px; direction:ltr; text-align:left; color:var(--text);}
+.ticket-sub{color:var(--text-dim); font-size:16px; margin:0 0 18px;}
+.progress-row{display:flex; align-items:center; gap:12px;}
+.progress-bar{flex:1; height:8px; border-radius:99px; background:rgba(27,36,64,0.08); overflow:hidden;}
+.progress-fill{height:100%; width:3.33%; background:linear-gradient(90deg,var(--gold),var(--gold-bright)); border-radius:99px; transition:width 2s cubic-bezier(.22,1,.36,1);}
+.progress-label{font-size:13.5px; color:var(--text-faint); font-family:'JetBrains Mono',monospace; white-space:nowrap;}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50; backdrop-filter:blur(14px);
+  background:rgba(243,245,251,0.88); border-bottom:1px solid var(--border);
+}
+.nav-inner{max-width:920px; margin:0 auto; display:flex; gap:6px; padding:10px 20px; overflow-x:auto;}
+.nav-btn{
+  flex:none; background:transparent; border:1px solid transparent; color:var(--text-dim);
+  padding:10px 18px; border-radius:99px; font-size:15px; font-weight:600; cursor:pointer;
+  font-family:inherit; transition:all .45s ease; white-space:nowrap;
+}
+.nav-btn:hover{color:var(--text); background:rgba(27,36,64,0.05);}
+.nav-btn.active{background:var(--gold); color:#FFFDF5; border-color:var(--gold);}
+
+.wrap{max-width:920px; margin:0 auto; padding:0 20px;}
+section{padding-top:50px; scroll-margin-top:70px;}
+.sec-head{margin-bottom:26px;}
+.eyebrow{font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.18em; color:var(--gold); text-transform:uppercase; margin:0 0 8px;}
+.sec-title{font-family:'Space Grotesk',sans-serif; font-size:29px; font-weight:700; margin:0 0 6px;}
+.sec-desc{color:var(--text-dim); font-size:16px; margin:0;}
+
+/* ---------- Dual text ---------- */
+.de-line{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; color:var(--text); direction:ltr; text-align:left; unicode-bidi:isolate;}
+.dual{margin-top:4px; display:flex; flex-direction:column; gap:1px;}
+.dual .ar{font-size:14px; color:var(--text-dim); font-weight:500;}
+.dual .en{font-size:13px; color:var(--text-faint); font-style:italic; direction:ltr; text-align:right;}
+
+/* ---------- Vocab chunks ---------- */
+.chunk-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px;}
+.chunk-card{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:16px 18px;
+  transition:transform .55s ease, border-color .55s ease, background .55s ease;
+}
+.chunk-card:hover{transform:translateY(-3px); border-color:var(--border-strong); background:var(--bg-card-hover);}
+.chunk-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
+.chunk-num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint); direction:ltr;}
+.play-btn{
+  background:rgba(201,147,10,0.10); border:1px solid rgba(201,147,10,0.35); color:var(--gold);
+  width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center;
+  flex:none; transition:all .4s ease;
+}
+.play-btn:hover{background:var(--gold); color:#FFFDF5; transform:scale(1.08);}
+.play-btn:active{transform:scale(.94);}
+
+/* ---------- sentence breakdown (تحليل الجملة) ---------- */
+.analyze-btn{
+  margin-top:10px; background:transparent; border:1px dashed var(--border-strong); color:var(--teal);
+  font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:600; padding:6px 12px; border-radius:8px;
+  cursor:pointer; transition:all .4s ease;
+}
+.analyze-btn:hover{background:rgba(14,143,136,0.08); border-color:var(--teal);}
+.breakdown-panel{
+  max-height:0; overflow:hidden; opacity:0; transition:max-height .6s ease, opacity .6s ease, margin .6s ease;
+}
+.breakdown-panel.show{max-height:600px; opacity:1; margin-top:12px;}
+.bd-row{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:10px;
+  padding:7px 10px; border-radius:8px; background:var(--bg-elevated); border:1px solid var(--border); margin-bottom:6px;
+}
+.bd-word{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; direction:ltr; text-align:left; color:var(--text);}
+.bd-role{font-size:11.5px; color:var(--teal); background:rgba(14,143,136,0.09); border:1px solid rgba(14,143,136,0.25); padding:3px 8px; border-radius:6px; text-align:center; white-space:nowrap;}
+.bd-mean{font-size:13px; color:var(--text-dim); text-align:right;}
+
+/* ---------- Grammar ---------- */
+.g-card{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:18px;}
+.g-card h3{font-family:'Space Grotesk',sans-serif; margin:0 0 4px; font-size:19px; color:var(--gold);}
+.g-card p.desc{color:var(--text-dim); font-size:15px; margin:0 0 14px;}
+table.conj{width:100%; border-collapse:collapse; font-size:15.5px;}
+table.conj th{text-align:right; color:var(--text-faint); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; padding:8px 10px; border-bottom:1px solid var(--border);}
+table.conj td{padding:9px 10px; border-bottom:1px solid rgba(27,36,64,0.06);}
+table.conj td.de{font-family:'Space Grotesk',sans-serif; font-weight:600; direction:ltr; text-align:left;}
+.alpha-grid{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;}
+.alpha-chip{
+  background:rgba(14,143,136,0.08); border:1px solid rgba(14,143,136,0.3); color:var(--teal);
+  font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15.5px; padding:7px 13px; border-radius:8px;
+}
+
+/* ---------- vocab chip grids (adverbs / states) ---------- */
+.vocab-grid{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
+.vocab-chip{
+  background:var(--bg-elevated); border:1px solid var(--border); border-radius:11px; padding:9px 14px;
+  cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; min-width:92px;
+  transition:all .4s ease;
+}
+.vocab-chip:hover{border-color:var(--teal); background:rgba(14,143,136,0.07); transform:translateY(-2px);}
+.vocab-chip .vc-de{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14.5px; direction:ltr;}
+.vocab-chip .vc-ar{font-size:11.5px; color:var(--text-dim);}
+
+/* ---------- 5-minute break section ---------- */
+#break{padding-top:34px; padding-bottom:10px;}
+.break-card{
+  max-width:520px; margin:0 auto; text-align:center; background:var(--bg-card); border:1px solid var(--border);
+  border-radius:20px; padding:38px 26px; box-shadow:0 16px 40px -20px rgba(27,36,64,0.18);
+}
+.break-breath{
+  width:74px; height:74px; margin:0 auto 18px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:28px; background:radial-gradient(circle at 35% 30%, rgba(242,183,5,0.35), rgba(14,143,136,0.25));
+  border:1px solid var(--border-strong); animation:breathe 4.5s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{transform:scale(1); opacity:.85;}
+  50%{transform:scale(1.18); opacity:1;}
+}
+.break-timer{font-size:40px; font-weight:700; color:var(--gold); letter-spacing:.05em;}
+
+/* ---------- Exercise blocks ---------- */
+.ex-cat{margin-top:44px;}
+.ex-cat-head{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
+.ex-cat-badge{
+  font-family:'JetBrains Mono',monospace; font-size:13px; background:var(--gold); color:#FFFDF5; font-weight:700;
+  padding:4px 10px; border-radius:7px;
+}
+.ex-cat-head h3{font-family:'Space Grotesk',sans-serif; font-size:20px; margin:0;}
+.q-card{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;
+  transition:border-color .55s ease;
+}
+.q-card.correct{border-color:rgba(51,196,129,0.6); background:rgba(51,196,129,0.05);}
+.q-card.wrong{border-color:rgba(229,85,107,0.6); background:rgba(229,85,107,0.05);}
+.q-idx{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint); margin-bottom:6px;}
+.q-text{font-size:17px; font-weight:600; margin-bottom:4px;}
+.q-text.de{direction:ltr; text-align:left; unicode-bidi:isolate;}
+.q-sub{font-size:13.5px; color:var(--text-faint); margin-bottom:14px;}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+@media(max-width:520px){.opts{grid-template-columns:1fr;}}
+.opt{
+  background:var(--bg-elevated); border:1px solid var(--border); color:var(--text); text-align:right;
+  padding:11px 14px; border-radius:10px; font-family:'Space Grotesk',sans-serif; font-size:15.5px; cursor:pointer;
+  transition:all .4s ease; direction:ltr; text-align:left;
+}
+.opt:hover{border-color:var(--border-strong); background:var(--bg-card-hover);}
+.opt.sel-correct{background:rgba(30,156,99,0.12); border-color:var(--success); color:#146B45;}
+.opt.sel-wrong{background:rgba(210,60,82,0.12); border-color:var(--error); color:#9C2A40;}
+.opt.disabled{pointer-events:none; opacity:.55;}
+.opt.reveal-correct{border-color:var(--success); box-shadow:0 0 0 1px var(--success) inset;}
+.opt.selected{border-color:var(--gold); background:rgba(201,147,10,0.10); box-shadow:0 0 0 1px var(--gold) inset;}
+.btn.ghost.selected{border-color:var(--error); color:var(--error); background:rgba(210,60,82,0.08);}
+
+.feedback{
+  margin-top:12px; padding:14px 16px; border-radius:10px; font-size:15px; display:none;
+  animation:slideIn .6s ease;
+}
+@keyframes slideIn{from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:translateY(0);}}
+.feedback.show{display:block;}
+.feedback.good{background:rgba(30,156,99,0.08); border:1px solid rgba(30,156,99,0.3); color:#136B45;}
+.feedback.bad{background:rgba(201,147,10,0.09); border:1px solid rgba(201,147,10,0.35); color:#8A6A0A;}
+.feedback b{color:inherit;}
+
+/* fill blank */
+.fb-input{
+  background:var(--bg-elevated); border:1px solid var(--border); color:var(--gold); font-family:'Space Grotesk',sans-serif;
+  font-weight:700; font-size:16px; padding:9px 11px; border-radius:8px; width:160px; text-align:center; direction:ltr;
+}
+.fb-input:focus{outline:none; border-color:var(--gold);}
+.fb-check{
+  background:var(--teal); color:#F5FFFD; border:none; padding:8px 16px; border-radius:8px; font-weight:700; cursor:pointer;
+  font-family:'Space Grotesk',sans-serif; font-size:14.5px; margin-inline-start:8px;
+}
+
+/* matching */
+.match-wrap{display:flex; gap:24px; flex-wrap:wrap;}
+.match-col{flex:1; min-width:220px; display:flex; flex-direction:column; gap:8px;}
+.match-item{
+  background:var(--bg-elevated); border:1px solid var(--border); padding:10px 14px; border-radius:9px; cursor:pointer;
+  font-size:15px; transition:all .4s ease; direction:ltr; text-align:left; font-family:'Space Grotesk',sans-serif;
+}
+.match-item.picked{border-color:var(--gold); background:rgba(201,147,10,0.12);}
+.match-item.paired{border-color:var(--teal); background:rgba(14,143,136,0.10); cursor:default;}
+.match-item.disabled{pointer-events:none;}
+.match-item.locked{border-color:var(--success); background:rgba(30,156,99,0.1); color:#146B45; pointer-events:none;}
+.match-item.shake{animation:shake .5s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+
+/* reorder writing */
+.chip-row{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0;}
+.chip{
+  background:var(--bg-elevated); border:1px solid var(--border-strong); padding:8px 14px; border-radius:8px; cursor:pointer;
+  font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; transition:all .4s ease;
+}
+.chip:hover{border-color:var(--gold);}
+.chip.used{opacity:.25; pointer-events:none;}
+.answer-line{
+  min-height:44px; border:1px dashed var(--border-strong); border-radius:10px; padding:8px 12px; margin-bottom:10px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:6px; direction:ltr;
+}
+.answer-line .chip{background:rgba(242,183,5,0.15); border-color:var(--gold); cursor:default;}
+.btn{
+  background:var(--gold); color:#FFFDF5; border:none; padding:10px 19px; border-radius:9px; font-weight:700; cursor:pointer;
+  font-family:'Space Grotesk',sans-serif; font-size:14.5px; transition:all .45s ease;
+}
+.btn:hover{filter:brightness(1.08); transform:translateY(-1px);}
+.btn.ghost{background:transparent; border:1px solid var(--border-strong); color:var(--text-dim);}
+.finish-exam-btn{font-size:16.5px; padding:15px 38px; border-radius:14px; box-shadow:0 10px 26px -10px rgba(201,147,10,0.55);}
+.finish-exam-wrap{margin:40px 0 10px; text-align:center; padding:26px; background:var(--bg-card); border:1px dashed var(--border-strong); border-radius:16px;}
+.finish-exam-note{color:var(--text-dim); font-size:13.5px; margin-top:12px; max-width:520px; margin-inline:auto;}
+.bd-word.audible{cursor:pointer;}
+.bd-word.audible:hover{color:var(--teal); text-decoration:underline;}
+
+/* speaking */
+.speak-card{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;}
+.speak-actions{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+.tag{font-size:11.5px; font-family:'JetBrains Mono',monospace; padding:3px 8px; border-radius:6px; background:rgba(27,36,64,0.06); color:var(--text-faint);}
+
+/* score bar */
+.score-fab{
+  position:fixed; bottom:18px; right:18px; z-index:60; background:var(--bg-elevated); border:1px solid var(--border-strong);
+  border-radius:16px; padding:12px 18px; box-shadow:0 12px 28px -10px rgba(27,36,64,0.28); display:flex; align-items:center; gap:12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.score-fab .circle{
+  width:44px; height:44px; border-radius:50%; background:conic-gradient(var(--gold) 0deg, rgba(27,36,64,0.08) 0deg);
+  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:var(--gold);
+  transition:background 1s ease;
+}
+.score-fab .lbl{font-size:12px; color:var(--text-faint);}
+.score-fab .val{font-size:16.5px; font-weight:700; color:var(--text);}
+
+footer{max-width:920px; margin:60px auto 0; padding:28px 20px; text-align:center; color:var(--text-faint); font-size:14px; border-top:1px solid var(--border);}
+
+/* ---------- 30-day roadmap / journey map ---------- */
+.roadmap-section{max-width:1000px; margin:26px auto 0; padding:0 20px;}
+.roadmap-head{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:6px;}
+.roadmap-head h2{font-family:'Space Grotesk',sans-serif; font-size:22px; margin:0;}
+.roadmap-badge{font-size:12px; font-family:'JetBrains Mono',monospace; background:rgba(14,143,136,0.10); color:var(--teal); border:1px solid rgba(14,143,136,0.32); padding:5px 10px; border-radius:8px; white-space:nowrap;}
+.roadmap-note{min-height:20px; font-size:14.5px; color:var(--gold); margin:6px 0 16px; transition:color .5s ease, opacity .5s ease;}
+.roadmap-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:11px; margin-bottom:6px;}
+.day-node{
+  position:relative; background:var(--bg-card); border:1px solid var(--border); border-radius:13px;
+  padding:13px 13px 11px; cursor:pointer; transition:all .45s ease;
+}
+.day-node:hover{transform:translateY(-3px); border-color:var(--border-strong); background:var(--bg-card-hover);}
+.day-node .dn-num{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-faint);}
+.day-node .dn-topic{font-size:14.5px; font-weight:700; margin:5px 0 6px; font-family:'Space Grotesk',sans-serif; line-height:1.35;}
+.day-node .dn-gram{font-size:11.5px; color:var(--text-dim); display:inline-block; background:rgba(201,147,10,0.10); border:1px solid rgba(201,147,10,0.28); padding:3px 8px; border-radius:6px;}
+.day-node .dn-status{position:absolute; top:10px; left:10px; font-size:15px;}
+.day-node.locked{opacity:.48; cursor:not-allowed;}
+.day-node.locked .dn-gram{opacity:.6;}
+.day-node.current{border-color:var(--gold); animation:pulseGlow 2.6s ease-in-out infinite;}
+.day-node.completed{border-color:var(--success); background:rgba(51,196,129,0.08);}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 1px var(--gold), 0 0 12px -6px rgba(242,183,5,.5);}
+  50%{box-shadow:0 0 0 1px var(--gold), 0 0 26px -4px rgba(242,183,5,.85);}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 30-day journey roadmap (gamified, unlocks day by day) ===== -->
+<div class="roadmap-section" id="roadmap">
+  <div class="roadmap-head">
+    <h2 class="de">🗺️ خارطة الرحلة — 30 يوماً حتى A1&ndash;A2</h2>
+    <span class="roadmap-badge">مطابق لمنهج Goethe-Institut · إطار CEFR</span>
+  </div>
+  <p class="roadmap-note" id="roadmapNote">أنهِ الخمسين سؤالاً في اليوم الحالي بالكامل ليُفتح اليوم التالي تلقائياً 🔓</p>
+  <div class="roadmap-grid" id="roadmapGrid"></div>
+</div>
+
+<!-- ===== Boarding-pass style header ===== -->
+<div class="ticket">
+  <div class="ticket-top">
+    <div class="ticket-brand">
+      <div class="flag"><div style="background:#000"></div><div style="background:#D00"></div><div style="background:#FFCE00"></div></div>
+      <div>
+        <h1 class="de">Deutschkurs · A1&ndash;A2</h1>
+        <small>معتمد وفق معايير معهد جوته وإطار CEFR</small>
+      </div>
+    </div>
+    <div class="ticket-day">
+      <div class="num">01<span style="color:var(--text-faint); font-size:22px;">/30</span></div>
+      <div class="lbl">LEKTIONSTAG · DAY</div>
+    </div>
+  </div>
+  <div class="perforation"></div>
+  <div class="ticket-bottom">
+    <p class="ticket-title de">Erste Schritte — أولى الخطوات</p>
+    <p class="ticket-sub">التحية، التعارف، الأبجدية الألمانية، وأفعال sein / heißen — جلسة اليوم ساعتان (55 دقيقة شرح + 5 استراحة + 60 دقيقة تمارين)</p>
+    <div class="progress-row">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0 / 50 SOLVED</div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner" id="navInner">
+    <button class="nav-btn" data-target="roadmap">🗺️ المسار (30 يوم)</button>
+    <button class="nav-btn active" data-target="chunks">📚 المفردات (Chunks)</button>
+    <button class="nav-btn" data-target="grammar">🧩 القواعد والحروف</button>
+    <button class="nav-btn" data-target="break">☕ استراحة</button>
+    <button class="nav-btn" data-target="exercises">✍️ التمارين (50)</button>
+    <button class="nav-btn" data-target="summary">🏁 النتيجة</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ===================== SECTION 1: CHUNKS ===================== -->
+  <section id="chunks">
+    <div class="sec-head">
+      <p class="eyebrow">Teil 1 · 55 دقيقة</p>
+      <h2 class="sec-title de">15 Chunks اليوم</h2>
+      <p class="sec-desc">استمع لكل عبارة (صوت رجل/امرأة بالتبادل) واقرأ ترجمتها المزدوجة أسفلها مباشرة — بدون أي نوافذ منبثقة.</p>
+    </div>
+    <div class="chunk-grid" id="chunkGrid"></div>
+  </section>
+
+  <!-- ===================== SECTION 2: GRAMMAR ===================== -->
+  <section id="grammar">
+    <div class="sec-head">
+      <p class="eyebrow">Teil 1 · تابع</p>
+      <h2 class="sec-title de">Grammatik &amp; Alphabet</h2>
+      <p class="sec-desc">القواعد الأساسية ليوم 1: الضمائر + فعلا sein و heißen + الأبجدية الألمانية.</p>
+    </div>
+
+    <div class="g-card">
+      <h3>Personalpronomen — الضمائر الشخصية</h3>
+      <p class="desc">أساس أي جملة ألمانية — تعلّمها جيداً فهي تتكرر كل يوم.</p>
+      <table class="conj">
+        <tr><th>Deutsch</th><th>العربية</th><th>English</th></tr>
+        <tr><td class="de">ich</td><td>أنا</td><td>I</td></tr>
+        <tr><td class="de">du</td><td>أنتَ / أنتِ</td><td>you (informal)</td></tr>
+        <tr><td class="de">er / sie / es</td><td>هو / هي / (محايد)</td><td>he / she / it</td></tr>
+        <tr><td class="de">wir</td><td>نحن</td><td>we</td></tr>
+        <tr><td class="de">ihr</td><td>أنتم (غير رسمي)</td><td>you (plural informal)</td></tr>
+        <tr><td class="de">sie / Sie</td><td>هم / حضرتك (رسمي)</td><td>they / you (formal)</td></tr>
+      </table>
+    </div>
+
+    <div class="g-card">
+      <h3>sein — يكون (فعل مساعد أساسي)</h3>
+      <p class="desc">فعل غير منتظم — يجب حفظه عن ظهر قلب.</p>
+      <table class="conj">
+        <tr><th>Deutsch</th><th>العربية</th><th>English</th></tr>
+        <tr><td class="de">ich bin</td><td>أنا أكون</td><td>I am</td></tr>
+        <tr><td class="de">du bist</td><td>أنتَ تكون</td><td>you are</td></tr>
+        <tr><td class="de">er/sie/es ist</td><td>هو/هي يكون</td><td>he/she/it is</td></tr>
+        <tr><td class="de">wir sind</td><td>نحن نكون</td><td>we are</td></tr>
+        <tr><td class="de">ihr seid</td><td>أنتم تكونون</td><td>you (pl.) are</td></tr>
+        <tr><td class="de">sie/Sie sind</td><td>هم يكونون / حضرتك تكون</td><td>they/you are</td></tr>
+      </table>
+    </div>
+
+    <div class="g-card">
+      <h3>heißen — يُسمّى / اسمه</h3>
+      <p class="desc">يُستخدم للتعريف بالاسم — فعل منتظم تقريباً.</p>
+      <table class="conj">
+        <tr><th>Deutsch</th><th>العربية</th><th>English</th></tr>
+        <tr><td class="de">ich heiße</td><td>اسمي</td><td>my name is</td></tr>
+        <tr><td class="de">du heißt</td><td>اسمك</td><td>your name is</td></tr>
+        <tr><td class="de">er/sie heißt</td><td>اسمه/اسمها</td><td>his/her name is</td></tr>
+        <tr><td class="de">wir heißen</td><td>أسماؤنا</td><td>our names are</td></tr>
+      </table>
+    </div>
+
+    <div class="g-card">
+      <h3>تصريف الأفعال المنتظمة — Regelmäßige Verben</h3>
+      <p class="desc">معظم الأفعال الألمانية "منتظمة" وتتبع نفس النمط: نأخذ جذر الفعل (نحذف -en) ونضيف النهاية المناسبة للضمير. مثال: lernen (يتعلّم).</p>
+      <table class="conj">
+        <tr><th>Deutsch</th><th>النهاية</th><th>العربية</th></tr>
+        <tr><td class="de">ich lerne</td><td class="mono">-e</td><td>أتعلّم</td></tr>
+        <tr><td class="de">du lernst</td><td class="mono">-st</td><td>تتعلّم</td></tr>
+        <tr><td class="de">er/sie/es lernt</td><td class="mono">-t</td><td>يتعلّم/تتعلّم</td></tr>
+        <tr><td class="de">wir lernen</td><td class="mono">-en</td><td>نتعلّم</td></tr>
+        <tr><td class="de">ihr lernt</td><td class="mono">-t</td><td>تتعلّمون</td></tr>
+        <tr><td class="de">sie/Sie lernen</td><td class="mono">-en</td><td>يتعلّمون/حضرتك تتعلّم</td></tr>
+      </table>
+      <p class="desc" style="margin-top:12px; margin-bottom:0;">نفس النمط ينطبق على: kommen (يأتي) → komme, kommst, kommt... و wohnen (يسكن)، machen (يفعل)، spielen (يلعب) وغيرها. أما sein و heißen فهي أفعال "شاذة" غير منتظمة (راجع الجداول بالأعلى).</p>
+    </div>
+
+    <div class="g-card">
+      <h3>حروف الجر الأساسية — Präpositionen</h3>
+      <p class="desc">حرف الجر في الألمانية بيحدد حالة الاسم اللي بعده (Dativ أو Akkusativ) — دي أهم حروف الجر لمستوى A1.</p>
+      <table class="conj">
+        <tr><th>Präposition</th><th>الحالة</th><th>المعنى</th></tr>
+        <tr><td class="de">aus</td><td>Dativ</td><td>من (المصدر) — Ich komme aus Ägypten</td></tr>
+        <tr><td class="de">von</td><td>Dativ</td><td>من (الجهة/الملكية)</td></tr>
+        <tr><td class="de">bei</td><td>Dativ</td><td>عند/لدى</td></tr>
+        <tr><td class="de">mit</td><td>Dativ</td><td>مع</td></tr>
+        <tr><td class="de">nach</td><td>Dativ</td><td>إلى/بعد</td></tr>
+        <tr><td class="de">zu</td><td>Dativ</td><td>إلى (مكان/شخص)</td></tr>
+        <tr><td class="de">in</td><td>Dativ (مكان ثابت)</td><td>في — Ich wohne in Kairo</td></tr>
+        <tr><td class="de">für</td><td>Akkusativ</td><td>من أجل — Das ist für mich</td></tr>
+        <tr><td class="de">ohne</td><td>Akkusativ</td><td>بدون</td></tr>
+        <tr><td class="de">um</td><td>Akkusativ</td><td>حول/الساعة</td></tr>
+      </table>
+      <p class="desc" style="margin-top:12px; margin-bottom:0;">تلميح: aus, von, bei, mit, nach, zu دايماً Dativ. für, ohne, um, durch, gegen دايماً Akkusativ. in, an, auf ممكن تكون Dativ أو Akkusativ حسب السؤال (وين؟ = Dativ / وين رايح؟ = Akkusativ) — هتتعلمها بالتفصيل في أيام قادمة.</p>
+    </div>
+
+    <div class="g-card">
+      <h3>تكوين الجملة الألمانية — Satzbau</h3>
+      <p class="desc">القاعدة الذهبية: فعل الجملة الرئيسية لازم يكون دايماً في <b>الموضع الثاني</b> (Position 2)، سواء الجملة عادية أو سؤال.</p>
+      <table class="conj">
+        <tr><th>النوع</th><th>مثال</th><th>ملاحظة</th></tr>
+        <tr><td>جملة خبرية</td><td class="de">Ich lerne Deutsch.</td><td>فاعل (1) + فعل (2) + الباقي</td></tr>
+        <tr><td>تبدأ بظرف</td><td class="de">Heute lerne ich Deutsch.</td><td>الفعل يفضل في الموضع 2، والفاعل بيتأخر</td></tr>
+        <tr><td>سؤال بأداة استفهام</td><td class="de">Wie heißt du?</td><td>أداة السؤال (1) + فعل (2) + فاعل</td></tr>
+        <tr><td>سؤال بنعم/لا</td><td class="de">Kommst du aus Kairo?</td><td>الفعل يبدأ الجملة مباشرة</td></tr>
+      </table>
+    </div>
+
+    <div class="g-card">
+      <h3>الرسمية وغير الرسمية — du أم Sie؟</h3>
+      <p class="desc">الألمانية بتفرّق بين أسلوب الحديث مع صديق/شخص عمرك (غير رسمي: du) وأسلوب الحديث مع شخص لا تعرفه/في العمل (رسمي: Sie) — والفعل بيتغير معاها.</p>
+      <table class="conj">
+        <tr><th>غير رسمي (du)</th><th>رسمي (Sie)</th><th>المعنى</th></tr>
+        <tr><td class="de">Wie heißt du?</td><td class="de">Wie heißen Sie?</td><td>ما اسمك؟</td></tr>
+        <tr><td class="de">Woher kommst du?</td><td class="de">Woher kommen Sie?</td><td>من أين أنت؟</td></tr>
+        <tr><td class="de">Wie geht es dir?</td><td class="de">Wie geht es Ihnen?</td><td>كيف حالك؟</td></tr>
+        <tr><td class="de">Bist du Student?</td><td class="de">Sind Sie Student?</td><td>هل أنت طالب؟</td></tr>
+      </table>
+      <p class="desc" style="margin-top:12px; margin-bottom:0;">لاحظ إن Sie (بحرف S كبير) بتتصرّف زي sie (هم) — يعني الفعل بصيغة الجمع، لكن معناها "حضرتك" المفرد المحترم. استخدم du مع الأصدقاء والعائلة والأطفال، و Sie مع الغرباء والمواقف الرسمية.</p>
+    </div>
+
+    <div class="g-card">
+      <h3>ظروف الزمان — Temporaladverbien</h3>
+      <p class="desc">كلمات بتحدد "إمتى" حصل الفعل — بتيجي غالباً في أول الجملة أو بعد الفعل مباشرة.</p>
+      <div class="vocab-grid" id="vocabTime"></div>
+    </div>
+
+    <div class="g-card">
+      <h3>ظروف المكان — Lokaladverbien</h3>
+      <p class="desc">كلمات بتحدد "فين" — تفيدك في وصف الأماكن والاتجاهات.</p>
+      <div class="vocab-grid" id="vocabPlace"></div>
+    </div>
+
+    <div class="g-card">
+      <h3>الأحوال الشخصية — Persönliches Befinden</h3>
+      <p class="desc">صفات بتوصف حالتك الشخصية، وبتُستخدم دايماً بعد فعل sein: "Ich bin ..." (اضغط أي كلمة لسماعها).</p>
+      <div class="vocab-grid" id="vocabState"></div>
+    </div>
+
+    <div class="g-card">
+      <h3>Das Alphabet — الأبجدية الألمانية</h3>
+      <p class="desc">26 حرفاً + 4 حروف خاصة بالألمانية: ä · ö · ü · ß (اضغط أي حرف لسماع نطقه)</p>
+      <div class="alpha-grid" id="alphaGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== BREAK: 5 minutes ===================== -->
+  <section id="break">
+    <div class="break-card">
+      <div class="break-breath" id="breathCircle">☕</div>
+      <h2 class="sec-title de" style="margin-bottom:8px;">استراحة 5 دقائق</h2>
+      <p class="sec-desc" style="max-width:420px; margin:0 auto 20px;">مخك محتاج وقت يهضم فيه المفردات والقواعد اللي درستها قبل ما يبدأ في الحل — خد نفس عميق، اشرب مية، وارتاح شوية عشان دماغك ما يتعبش.</p>
+      <div class="break-timer mono" id="breakTimer">05:00</div>
+      <button class="btn ghost" id="skipBreakBtn" style="margin-top:18px;">تخطّي الاستراحة والانتقال للتمارين ⏭️</button>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3: EXERCISES ===================== -->
+  <section id="exercises">
+    <div class="sec-head">
+      <p class="eyebrow">Teil 2 · 60 دقيقة</p>
+      <h2 class="sec-title de">50 Übungen — التمارين اليومية</h2>
+      <p class="sec-desc">عند كل خطأ ستظهر بطاقة شرح تحفيزية داخل الصفحة مباشرة توضح القاعدة الصحيحة.</p>
+    </div>
+
+    <div id="examContainer"></div>
+  </section>
+
+  <!-- ===================== SUMMARY ===================== -->
+  <section id="summary">
+    <div class="sec-head">
+      <p class="eyebrow">Zusammenfassung</p>
+      <h2 class="sec-title de">نتيجتك ليوم 1</h2>
+      <p class="sec-desc">أكمل كل التمارين أعلاه لترى تقييمك الكامل هنا.</p>
+    </div>
+    <div class="g-card" id="summaryCard">
+      <h3 id="summaryTitle">لم تكتمل بعد</h3>
+      <p class="desc" id="summaryText">حل الأسئلة الخمسين بالأعلى، وستظهر نتيجتك التفصيلية هنا فور الانتهاء.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>Tag 01 / 30 — Erste Schritte · محتوى متوافق مع منهج A1 الصادر عن معهد جوته وإطار CEFR الأوروبي · غداً: الأرقام والعائلة 🇩🇪</footer>
+
+<div class="score-fab" id="scoreFab">
+  <div class="circle" id="scoreCircle">0%</div>
+  <div>
+    <div class="lbl" id="scoreLbl">النتيجة الحالية</div>
+    <div class="val"><span id="scoreVal">0</span> / 50</div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   AUDIO ENGINE — explicit male + female German voices
+============================================================ */
+let deVoices = [];
+let maleVoice = null;
+let femaleVoice = null;
+
+const FEMALE_HINTS = /female|frau|weiblich|katja|anna|petra|marlene|vicki|helena|martha|ingrid|google.*deutsch$/i;
+const MALE_HINTS   = /male|mann|männlich|hans|stefan|yannick|conrad|markus|klaus|daniel|otto/i;
+const QUALITY_HINTS = /google|natural|neural|enhanced|premium|online|wavenet|siri/i;
+
+function voiceScore(v){
+  let score = 0;
+  if (QUALITY_HINTS.test(v.name)) score += 3;
+  if (v.localService === false) score += 1; // often a network/neural voice on Chrome, tends to sound better
+  return score;
+}
+
+function resolveVoices(){
+  const all = (typeof speechSynthesis !== 'undefined') ? speechSynthesis.getVoices() : [];
+  deVoices = all.filter(v => v.lang && v.lang.toLowerCase().startsWith('de'))
+                .sort((a,b) => voiceScore(b) - voiceScore(a)); // best-sounding voices first
+
+  femaleVoice = deVoices.find(v => FEMALE_HINTS.test(v.name)) || null;
+  maleVoice   = deVoices.find(v => MALE_HINTS.test(v.name) && v !== femaleVoice) || null;
+
+  // Fill in from whatever distinct voices remain (already sorted best-first) if hints didn't match both
+  const remaining = deVoices.filter(v => v !== femaleVoice && v !== maleVoice);
+  if (!femaleVoice && remaining.length) femaleVoice = remaining.shift();
+  if (!maleVoice && remaining.length) maleVoice = remaining.shift();
+  if (!femaleVoice) femaleVoice = deVoices[0] || null;
+  if (!maleVoice) maleVoice = deVoices[1] || femaleVoice;
+}
+resolveVoices();
+if (typeof speechSynthesis !== 'undefined') {
+  speechSynthesis.onvoiceschanged = resolveVoices;
+}
+
+function makeUtterance(text, gender){
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'de-DE';
+  const voice = gender === 'f' ? femaleVoice : maleVoice;
+  const sameVoiceForBoth = maleVoice && femaleVoice && maleVoice === femaleVoice;
+  if (voice) u.voice = voice;
+  // Only fake the gender difference with pitch when we truly have no second real voice —
+  // and keep the shift subtle so it doesn't sound like a cartoon/robot.
+  if (!voice || sameVoiceForBoth){
+    u.pitch = gender === 'f' ? 1.12 : 0.92;
+  } else {
+    u.pitch = 1;
+  }
+  u.rate = 0.95;
+  return u;
+}
+
+/** Speaks once, with a specific gender ('m' or 'f'). */
+function speak(text, gender){
+  try{
+    if (!('speechSynthesis' in window)) return;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(makeUtterance(text, gender || 'f'));
+  }catch(e){ /* silent fail — audio not critical to scoring */ }
+}
+
+/** Speaks the same sentence twice: once male, once female, chained so they never overlap or cut off. */
+function speakDual(text){
+  try{
+    if (!('speechSynthesis' in window)) return;
+    speechSynthesis.cancel();
+    const first = makeUtterance(text, 'm');
+    const second = makeUtterance(text, 'f');
+    first.onend = () => { try{ speechSynthesis.speak(second); }catch(e){} };
+    first.onerror = () => { try{ speechSynthesis.speak(second); }catch(e){} };
+    speechSynthesis.speak(first);
+  }catch(e){ /* silent fail — audio not critical to scoring */ }
+}
+
+/* ============================================================
+   DATA — Day 1 content
+============================================================ */
+const chunks = [
+  {de:"Hallo, wie geht es dir heute?", ar:"مرحباً، كيف حالك اليوم؟", en:"Hi, how are you today?", bd:[
+    ["Hallo","تحية","مرحباً"],["wie","أداة استفهام","كيف"],["geht","فعل gehen مع es","يسير (بمعنى: يكون حاله)"],["es","ضمير محايد (فاعل صوري)","هي/ذلك"],["dir","ضمير جر Dativ لـ du","لك"],["heute","ظرف زمان","اليوم"]
+  ]},
+  {de:"Guten Morgen, ich wünsche dir einen schönen Tag!", ar:"صباح الخير، أتمنى لك يوماً جميلاً!", en:"Good morning, I wish you a nice day!", bd:[
+    ["Guten Morgen","تحية ثابتة","صباح الخير"],["ich","ضمير فاعل","أنا"],["wünsche","فعل wünschen مع ich","أتمنى"],["dir","ضمير جر Dativ","لك"],["einen","أداة تنكير Akkusativ (مذكر)","ـاً"],["schönen","صفة مصرّفة","جميل"],["Tag","اسم مذكر","يوم"]
+  ]},
+  {de:"Guten Tag, es freut mich, dich zu sehen!", ar:"نهارك سعيد، يسعدني رؤيتك!", en:"Good day, it's nice to see you!", bd:[
+    ["Guten Tag","تحية ثابتة","نهارك سعيد"],["es freut mich","تعبير ثابت","يسعدني"],["dich","ضمير مفعول Akkusativ لـ du","إياك/أن أراك"],["zu sehen","مصدر (Infinitiv)","أن أرى"]
+  ]},
+  {de:"Guten Abend, wie war dein Tag heute?", ar:"مساء الخير، كيف كان يومك اليوم؟", en:"Good evening, how was your day today?", bd:[
+    ["Guten Abend","تحية ثابتة","مساء الخير"],["wie","أداة استفهام","كيف"],["war","فعل sein في الماضي","كان"],["dein","صفة ملكية (du)","...ـك"],["Tag","اسم","يوم"],["heute","ظرف زمان","اليوم"]
+  ]},
+  {de:"Wie heißt du und woher kommst du?", ar:"ما اسمك ومن أين أنت؟", en:"What's your name and where are you from?", bd:[
+    ["Wie","أداة استفهام","كيف/ما"],["heißt","فعل heißen مع du","تُسمّى"],["du","ضمير فاعل","أنتَ"],["und","حرف عطف","و"],["woher","أداة استفهام","من أين"],["kommst","فعل kommen مع du","تأتي"],["du","ضمير فاعل","أنتَ"]
+  ]},
+  {de:"Ich heiße Sara und ich bin Studentin.", ar:"اسمي سارة وأنا طالبة جامعية.", en:"My name is Sara and I am a student.", bd:[
+    ["Ich","ضمير فاعل","أنا"],["heiße","فعل heißen مع ich","أُسمّى"],["Sara","اسم علم","سارة"],["und","حرف عطف","و"],["ich","ضمير فاعل","أنا"],["bin","فعل sein مع ich","أكون"],["Studentin","اسم (مؤنث)","طالبة جامعية"]
+  ]},
+  {de:"Wie geht es dir denn heute so?", ar:"كيف حالك إذن اليوم؟", en:"So, how are you doing today?", bd:[
+    ["Wie","أداة استفهام","كيف"],["geht es dir","تعبير ثابت","حالك"],["denn","أداة تحفيزية/تأكيدية","إذن/يا ترى"],["heute","ظرف زمان","اليوم"],["so","ظرف","هكذا"]
+  ]},
+  {de:"Mir geht es sehr gut, vielen Dank!", ar:"أنا بحالة جيدة جداً، شكراً جزيلاً!", en:"I'm doing very well, thank you very much!", bd:[
+    ["Mir","ضمير جر Dativ لـ ich","لي"],["geht es","تعبير ثابت","الحال يسير"],["sehr","ظرف تعزيز","جداً"],["gut","صفة/حال","جيد"],["vielen Dank","تعبير ثابت","شكراً جزيلاً"]
+  ]},
+  {de:"Bitte schön, das ist kein Problem für mich.", ar:"عفواً، هذا ليس مشكلة بالنسبة لي.", en:"You're welcome, that's no problem for me.", bd:[
+    ["Bitte schön","تعبير ثابت","عفواً/على الرحب"],["das","ضمير إشارة","هذا"],["ist","فعل sein مع es/das","يكون"],["kein","أداة نفي (مذكر)","لا/ليس"],["Problem","اسم","مشكلة"],["für","حرف جر Akkusativ","من أجل"],["mich","ضمير مفعول Akkusativ لـ ich","لي"]
+  ]},
+  {de:"Auf Wiedersehen, bis bald und alles Gute!", ar:"إلى اللقاء، أراك قريباً ومع أطيب التمنيات!", en:"Goodbye, see you soon and all the best!", bd:[
+    ["Auf Wiedersehen","عبارة وداع رسمية","إلى اللقاء"],["bis bald","تعبير ثابت","إلى قريب"],["und","حرف عطف","و"],["alles Gute","تعبير ثابت","كل التمنيات الطيبة"]
+  ]},
+  {de:"Tschüss, wir sehen uns morgen wieder!", ar:"مع السلامة، سنلتقي غداً مرة أخرى!", en:"Bye, we'll see each other again tomorrow!", bd:[
+    ["Tschüss","عبارة وداع غير رسمية","مع السلامة"],["wir","ضمير فاعل","نحن"],["sehen","فعل sehen مع wir","نرى"],["uns","ضمير انعكاسي","أنفسنا/بعضنا"],["morgen","ظرف زمان","غداً"],["wieder","ظرف","مرة أخرى"]
+  ]},
+  {de:"Ich komme aus Ägypten und wohne in Kairo.", ar:"أنا قادم من مصر وأسكن في القاهرة.", en:"I come from Egypt and live in Cairo.", bd:[
+    ["Ich","ضمير فاعل","أنا"],["komme","فعل kommen مع ich","آتي"],["aus","حرف جر Dativ (المصدر)","من"],["Ägypten","اسم بلد","مصر"],["und","حرف عطف","و"],["wohne","فعل wohnen مع ich","أسكن"],["in","حرف جر Dativ (المكان)","في"],["Kairo","اسم مدينة","القاهرة"]
+  ]},
+  {de:"Ich bin zwanzig Jahre alt und lerne Deutsch.", ar:"عمري عشرون عاماً وأتعلم الألمانية.", en:"I am twenty years old and learning German.", bd:[
+    ["Ich bin","فاعل + فعل sein","أنا"],["zwanzig","عدد","عشرون"],["Jahre","اسم جمع","سنوات"],["alt","صفة (تعبير العمر)","عمراً"],["und","حرف عطف","و"],["lerne","فعل lernen مع ich","أتعلّم"],["Deutsch","اسم اللغة","الألمانية"]
+  ]},
+  {de:"Es freut mich sehr, dich kennenzulernen!", ar:"يسعدني جداً التعرف عليك!", en:"I'm very pleased to meet you!", bd:[
+    ["Es freut mich","تعبير ثابت","يسعدني"],["sehr","ظرف تعزيز","جداً"],["dich","ضمير مفعول Akkusativ","بك"],["kennenzulernen","مصدر مركب (kennenlernen)","أن أتعرّف على"]
+  ]},
+  {de:"Und du, wie heißt du eigentlich?", ar:"وأنت، ما اسمك بالضبط؟", en:"And you, what's your name actually?", bd:[
+    ["Und","حرف عطف","و"],["du","ضمير فاعل","أنتَ"],["wie","أداة استفهام","كيف/ما"],["heißt","فعل heißen مع du","تُسمّى"],["du","ضمير فاعل","أنتَ"],["eigentlich","ظرف تأكيد","بالضبط/أصلاً"]
+  ]},
+];
+const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Ä","Ö","Ü","ß"];
+
+const MOTIV_WRONG = [
+  "لا بأس! كل خطأ هو خطوة نحو الإتقان 💪",
+  "قريب جداً! راجع القاعدة وستنجح في المرة القادمة 🌱",
+  "ممتاز أنك حاولت — الآن دعنا نفهم السبب سوياً 🔍",
+  "لا تقلق، حتى الألمان يخطئون أحياناً 😉 هيا نتعلم:"
+];
+const MOTIV_RIGHT = [
+  "🎉 ممتاز! إجابة صحيحة تماماً!",
+  "👏 رائع! أنت تتقدم بسرعة!",
+  "✨ Super! استمر بنفس الأداء!",
+  "🔥 بالضبط! هكذا يتحدث الألمان."
+];
+function rnd(arr){return arr[Math.floor(Math.random()*arr.length)];}
+
+/* ---- MCQ (15) ---- */
+const mcq = [
+ {q:"Wie sagt man „Hello“ auf Deutsch?", opts:["Tschüss","Hallo","Danke","Bitte"], c:1, ex:"«Hallo» هي التحية الأكثر شيوعاً وتُستخدم في أي وقت من اليوم — تقابل «Hi» بالإنجليزية."},
+ {q:"Guten ___! (تحية الصباح)", opts:["Tag","Abend","Morgen","Nacht"], c:2, ex:"«Guten Morgen» = صباح الخير، تُقال حتى قبل الظهر تقريباً."},
+ {q:"Ich ___ Sara. (heißen)", opts:["heißt","heiße","heißen","heißest"], c:1, ex:"مع الضمير «ich» يصبح الفعل «heiße» — القاعدة: احذف -en وأضف -e."},
+ {q:"Du ___ aus Ägypten. (kommen)", opts:["kommst","komme","kommt","kommen"], c:0, ex:"مع «du» نضيف -st لجذر الفعل: komm + st = kommst."},
+ {q:"Er ___ 20 Jahre alt. (sein)", opts:["bin","bist","ist","sind"], c:2, ex:"er/sie/es تأخذ «ist» دائماً مع فعل sein."},
+ {q:"Wie ___ es dir?", opts:["geht","gehst","gehe","gehen"], c:0, ex:"التعبير الثابت «Wie geht es dir؟» يستخدم دائماً «geht» مع «es»."},
+ {q:"___ du Student? (sein)", opts:["Bist","Bin","Ist","Sind"], c:0, ex:"في الأسئلة يبدأ الفعل الجملة: «Bist du...؟» مع du = bist."},
+ {q:"ما هو الرد المناسب على «Danke»؟", opts:["Bitte","Tschüss","Hallo","Ja"], c:0, ex:"«Bitte» تعني هنا «عفواً/على الرحب» رداً على الشكر."},
+ {q:"مع «Sie» (صيغة الاحترام) فعل sein يكون:", opts:["ist","sind","bist","bin"], c:1, ex:"صيغة الاحترام «Sie» تُصرَّف مثل الجمع: sind."},
+ {q:"Wir ___ Freunde. (sein)", opts:["ist","sind","bin","bist"], c:1, ex:"مع «wir» يكون الفعل sein دائماً «sind»."},
+ {q:"الحرف «ß» يقابل في الكتابة اللاتينية:", opts:["ss مضاعفة","حرف z","حرف ch","حرف sch"], c:0, ex:"يُسمى «scharfes S» ويُنطق كحرف s قوي، ويعادل كتابياً ss."},
+ {q:"أي حرف يأتي بعد «M» في الأبجدية الألمانية؟", opts:["L","N","O","K"], c:1, ex:"الأبجدية الألمانية بنفس ترتيب اللاتينية: ...L, M, N, O..."},
+ {q:"„Ich komme aus Deutschland“ تعني:", opts:["أعيش في ألمانيا","أنا قادم من ألمانيا","أتحدث الألمانية","أحب ألمانيا"], c:1, ex:"«kommen aus» = القدوم من / الأصل من، وليس السكن أو الحب."},
+ {q:"Ihr ___ nett. (sein)", opts:["sind","ist","seid","bin"], c:2, ex:"مع «ihr» (أنتم غير رسمي) يكون الفعل «seid» دائماً."},
+ {q:"„Auf Wiedersehen“ تُستخدم:", opts:["عند اللقاء","عند الوداع","أثناء الأكل","عند النوم"], c:1, ex:"هي عبارة وداع رسمية، تقابل «Goodbye»."},
+];
+
+/* ---- Matching (8 pairs) ---- */
+const matching = [
+ {de:"Hallo", en:"Hi"},
+ {de:"Danke", en:"Thank you"},
+ {de:"Tschüss", en:"Bye"},
+ {de:"Bitte", en:"Please / You're welcome"},
+ {de:"Guten Abend", en:"Good evening"},
+ {de:"Wie heißt du?", en:"What's your name?"},
+ {de:"Freut mich", en:"Nice to meet you"},
+ {de:"Ich komme aus...", en:"I come from..."},
+];
+
+/* ---- Reading (1 text + 5 Q) ---- */
+const readingText = {
+  de:"Hallo! Ich heiße Lisa. Ich komme aus Berlin. Ich bin 22 Jahre alt. Ich bin Studentin. Mir geht es sehr gut. Und du? Wie heißt du?",
+  ar:"مرحباً! اسمي ليزا. أنا قادمة من برلين. عمري 22 عاماً. أنا طالبة جامعية. أنا بحالة جيدة جداً. وأنت؟ ما اسمك؟",
+  en:"Hi! My name is Lisa. I come from Berlin. I am 22 years old. I am a student. I'm doing very well. And you? What's your name?"
+};
+const reading = [
+ {q:"Wie heißt die Person im Text?", opts:["Anna","Lisa","Sara","Julia"], c:1, ex:"النص يبدأ بـ «Ich heiße Lisa»."},
+ {q:"Woher kommt Lisa?", opts:["München","Hamburg","Berlin","Köln"], c:2, ex:"«Ich komme aus Berlin» — أي أنها من برلين."},
+ {q:"Wie alt ist Lisa?", opts:["20","21","22","23"], c:2, ex:"النص يذكر «Ich bin 22 Jahre alt»."},
+ {q:"Was ist Lisa von Beruf?", opts:["Lehrerin","Studentin","Ärztin","Ingenieurin"], c:1, ex:"«Ich bin Studentin» تعني أنها طالبة جامعية."},
+ {q:"Wie geht es Lisa?", opts:["schlecht","nicht so gut","sehr gut","mittelmäßig"], c:2, ex:"النص يقول «Mir geht es sehr gut» أي بحالة جيدة جداً."},
+];
+
+/* ---- Fill in the blanks (12) ---- */
+const fillBlank = [
+ {pre:"Guten", post:"!", ans:"Morgen", hint:"تحية الصباح", ex:"«Guten Morgen» = صباح الخير."},
+ {pre:"Ich", post:"Ahmed.", ans:"heiße", hint:"فعل heißen مع ich", ex:"مع «ich» يصبح الفعل «heiße»."},
+ {pre:"", post:"heißt du?", ans:"Wie", hint:"أداة استفهام", ex:"«Wie heißt du؟» = ما اسمك؟"},
+ {pre:"Ich komme", post:"Ägypten.", ans:"aus", hint:"حرف جر المصدر", en:"", ex:"نستخدم «aus» للتعبير عن بلد المنشأ."},
+ {pre:"Er", post:"Lehrer.", ans:"ist", hint:"فعل sein مع er", ex:"مع «er» يكون فعل sein هو «ist»."},
+ {pre:"Wie", post:"es dir?", ans:"geht", hint:"تعبير السؤال عن الحال", ex:"«Wie geht es dir؟» تعبير ثابت."},
+];
+
+/* ---- Writing (6): 5 reorder + 1 open ---- */
+const writingReorder = [
+ {words:["heiße","Ich","Ahmed"], ans:"Ich heiße Ahmed.", ex:"ترتيب الجملة الألمانية البسيطة: الفاعل + الفعل + الباقي."},
+ {words:["aus","komme","Ich","Kairo"], ans:"Ich komme aus Kairo.", ex:"Ich (فاعل) + komme (فعل) + aus Kairo (شبه جملة)."},
+ {words:["geht","gut","es","Mir"], ans:"Mir geht es gut.", ex:"تعبير ثابت يبدأ بـ Mir في هذه الحالة الخاصة."},
+ {words:["alt","bin","Ich","20","Jahre"], ans:"Ich bin 20 Jahre alt.", ex:"الفاعل + الفعل sein + العدد + Jahre alt."},
+ {words:["du","heißt","Wie"], ans:"Wie heißt du?", ex:"في أسئلة الاستفهام: أداة السؤال + الفعل + الفاعل."},
+];
+const writingOpen = {
+  prompt:"عرّف عن نفسك في جملة واحدة (الاسم + من أين أنت):",
+  model:"Ich heiße Sara und ich komme aus Kairo."
+};
+
+/* ---- Speaking (4) ---- */
+const speaking = [
+ {de:"Hallo, wie geht's?", ar:"مرحباً، كيف حالك؟", en:"Hi, how are you?"},
+ {de:"Ich heiße ... und ich komme aus ...", ar:"اسمي ... وأنا قادم من ...", en:"My name is ... and I come from ..."},
+ {de:"Guten Morgen! Wie geht es Ihnen?", ar:"صباح الخير! كيف حالك؟ (رسمي)", en:"Good morning! How are you? (formal)"},
+ {de:"Auf Wiedersehen, bis morgen!", ar:"إلى اللقاء، أراك غداً!", en:"Goodbye, see you tomorrow!"},
+ {de:"Wie ist dein Name und wie alt bist du?", ar:"ما اسمك وكم عمرك؟", en:"What's your name and how old are you?"},
+ {de:"Ich bin Student und lerne jeden Tag Deutsch.", ar:"أنا طالب وأتعلم الألمانية كل يوم.", en:"I am a student and learn German every day."},
+ {de:"Vielen Dank für deine Hilfe, das ist sehr nett!", ar:"شكراً جزيلاً على مساعدتك، ده لطف منك!", en:"Thank you very much for your help, that's very kind!"},
+ {de:"Entschuldigung, wie heißt du noch einmal?", ar:"آسف، ممكن تقول اسمك تاني؟", en:"Sorry, what's your name again?"},
+ {de:"Es tut mir leid, ich habe das nicht verstanden.", ar:"أنا آسف، أنا مفهمتش ده.", en:"I'm sorry, I didn't understand that."},
+ {de:"Bis später, ich muss jetzt leider gehen!", ar:"أشوفك بعدين، للأسف لازم أمشي دلوقتي!", en:"See you later, unfortunately I have to go now!"},
+];
+
+/* ============================================================
+   30-DAY SYLLABUS (topic + daily grammar focus, CEFR A1→A2)
+============================================================ */
+const daysSyllabus = [
+ {day:1,  topic:"التحية والتعارف",        grammar:"sein · heißen · الضمائر"},
+ {day:2,  topic:"الأرقام والعائلة",        grammar:"Zahlen 0-100 · haben"},
+ {day:3,  topic:"الألوان والأشياء",        grammar:"Artikel: der/die/das"},
+ {day:4,  topic:"الوقت والأيام",           grammar:"Uhrzeit · Wochentage"},
+ {day:5,  topic:"الطعام والشراب",          grammar:"Plural-Formen"},
+ {day:6,  topic:"التسوق",                  grammar:"Akkusativ · Wortstellung"},
+ {day:7,  topic:"المنزل والغرف",           grammar:"Präpositionen: in/auf/unter"},
+ {day:8,  topic:"الطقس والفصول",           grammar:"Adjektive"},
+ {day:9,  topic:"الجسم والصحة",            grammar:"Modalverben: können/müssen"},
+ {day:10, topic:"المهن",                   grammar:"Akkusativ-Objekte"},
+ {day:11, topic:"الاتجاهات",               grammar:"Imperativ"},
+ {day:12, topic:"الهوايات",                grammar:"gern / nicht gern"},
+ {day:13, topic:"المواصلات",               grammar:"trennbare Verben"},
+ {day:14, topic:"مراجعة A1 الشاملة",       grammar:"Wiederholung A1"},
+ {day:15, topic:"اختبار منتصف المدة",      grammar:"Zwischentest A1"},
+ {day:16, topic:"الحديث عن الماضي",        grammar:"Perfekt: haben/sein"},
+ {day:17, topic:"وصف الأشخاص",             grammar:"Adjektivdeklination"},
+ {day:18, topic:"الخطط المستقبلية",        grammar:"Futur I: werden"},
+ {day:19, topic:"المقارنة",                grammar:"Komparativ · Superlativ"},
+ {day:20, topic:"التعليل والربط",          grammar:"weil · dass"},
+ {day:21, topic:"في المطعم",               grammar:"Dativ-Präpositionen"},
+ {day:22, topic:"عند الطبيب",              grammar:"Reflexivverben"},
+ {day:23, topic:"الرسائل والإيميلات",      grammar:"Nebensätze"},
+ {day:24, topic:"الثقافة الألمانية",       grammar:"Landeskunde"},
+ {day:25, topic:"السفر والفنادق",          grammar:"Modalverben (Wdh.)"},
+ {day:26, topic:"العمل والمقابلات",        grammar:"Höflichkeitsform"},
+ {day:27, topic:"التعبير عن الرأي",        grammar:"Konnektoren: deshalb"},
+ {day:28, topic:"الجمل المركبة",           grammar:"wenn / als"},
+ {day:29, topic:"مراجعة A2 الشاملة",       grammar:"Wiederholung A2"},
+ {day:30, topic:"الاختبار النهائي الشامل", grammar:"Abschlusstest A1-A2"},
+];
+
+let progress = { completed: [] };
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('day-progress', false);
+    if (res && res.value){ progress = JSON.parse(res.value); }
+  }catch(e){ /* لا يوجد تقدم محفوظ بعد — هذه أول زيارة */ }
+  renderRoadmap();
+}
+async function saveProgress(){
+  try{ await window.storage.set('day-progress', JSON.stringify(progress), false); }
+  catch(e){ /* الحفظ غير متاح الآن، سيستمر التقدم داخل هذه الجلسة فقط */ }
+}
+
+function renderRoadmap(){
+  const grid = document.getElementById('roadmapGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  daysSyllabus.forEach(d=>{
+    const isCompleted = progress.completed.includes(d.day);
+    const isUnlocked  = d.day === 1 || progress.completed.includes(d.day - 1);
+    const isCurrent   = isUnlocked && !isCompleted;
+    const node = document.createElement('div');
+    node.className = 'day-node'
+      + (isCompleted ? ' completed' : '')
+      + (isCurrent ? ' current' : '')
+      + (!isUnlocked ? ' locked' : '');
+    node.innerHTML = `
+      <span class="dn-status">${isCompleted ? '✅' : (isUnlocked ? '🔓' : '🔒')}</span>
+      <div class="dn-num mono">TAG ${String(d.day).padStart(2,'0')}</div>
+      <div class="dn-topic">${d.topic}</div>
+      <span class="dn-gram">${d.grammar}</span>`;
+    node.addEventListener('click', ()=>{
+      const note = document.getElementById('roadmapNote');
+      if (!isUnlocked){
+        note.style.color = 'var(--error)';
+        note.textContent = `🔒 أكمل اليوم ${d.day - 1} أولاً حتى يُفتح اليوم ${d.day}.`;
+      } else if (d.day === 1){
+        document.getElementById('chunks').scrollIntoView({behavior:'smooth'});
+        note.style.color = 'var(--gold)';
+        note.textContent = 'أنت الآن في اليوم 1 — أنهِ الخمسين سؤالاً لفتح اليوم التالي 🔓';
+      } else if (isCompleted){
+        note.style.color = 'var(--success)';
+        note.textContent = `✅ أكملت اليوم ${d.day} بالفعل! رائع، واصل التقدم في رحلتك.`;
+      } else {
+        note.style.color = 'var(--teal)';
+        note.textContent = `🎉 اليوم ${d.day} أصبح متاحاً لك! اطلب مني "ابدأ اليوم ${d.day}" وسأجهزه لك بنفس الأسلوب فوراً.`;
+      }
+    });
+    grid.appendChild(node);
+  });
+}
+loadProgress();
+
+/* ============================================================
+   SCORING
+============================================================ */
+let score = 0;
+const TOTAL = 50;
+function addScore(n){
+  score += n;
+  document.getElementById('scoreVal').textContent = score;
+  const pct = Math.round((score/TOTAL)*100);
+  document.getElementById('scoreCircle').style.background = `conic-gradient(var(--gold) ${pct*3.6}deg, rgba(27,36,64,0.08) 0deg)`;
+  document.getElementById('scoreCircle').textContent = pct+'%';
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = score+' / '+TOTAL+' SOLVED';
+  if (score >= TOTAL){
+    document.getElementById('summaryTitle').textContent = "🏆 أحسنت! أنهيت اليوم الأول بامتياز";
+    document.getElementById('summaryText').innerHTML = "لقد أجبت على جميع الأسئلة الـ50 بشكل صحيح، وأتقنت التحيات والتعارف وفعلي sein و heißen. استرح 5 دقائق ثم انتقل إلى <b>Tag 02: الأرقام والعائلة</b> غداً 🇩🇪";
+    if (!progress.completed.includes(1)){
+      progress.completed.push(1);
+      saveProgress();
+      renderRoadmap();
+      const note = document.getElementById('roadmapNote');
+      if (note){
+        note.style.color = 'var(--success)';
+        note.textContent = '🎉 مبروك! أكملت اليوم 1 وفتحت اليوم 2 على الخارطة أعلاه — مرّ عليها لترى التقدم مضاءً!';
+      }
+      document.getElementById('roadmap').scrollIntoView({behavior:'smooth'});
+    }
+  }
+}
+
+/* ============================================================
+   RENDER: Chunks
+============================================================ */
+const chunkGrid = document.getElementById('chunkGrid');
+chunks.forEach((c,i)=>{
+  const card = document.createElement('div');
+  card.className = 'chunk-card';
+  const bdRows = c.bd.map(([w,role,mean])=>`
+      <div class="bd-row">
+        <span class="bd-word audible" data-word="${w}" title="اضغط للاستماع">${w} 🔈</span>
+        <span class="bd-mean">${mean}</span>
+        <span class="bd-role">${role}</span>
+      </div>`).join('');
+  card.innerHTML = `
+    <div class="chunk-top">
+      <div>
+        <div class="chunk-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="de-line">${c.de}</div>
+        <div class="dual"><span class="ar">${c.ar}</span><span class="en">${c.en}</span></div>
+        <span class="tag" style="margin-top:7px; display:inline-block;">🔊 رجل + امرأة</span>
+      </div>
+      <button class="play-btn" aria-label="play">🔊</button>
+    </div>
+    <button class="analyze-btn">🧩 حلّل تكوين الجملة</button>
+    <div class="breakdown-panel">${bdRows}</div>`;
+  card.querySelector('.play-btn').addEventListener('click', ()=>speakDual(c.de));
+  card.querySelectorAll('.bd-word.audible').forEach(w=>{
+    w.addEventListener('click', ()=>speak(w.dataset.word, 'f'));
+  });
+  const aBtn = card.querySelector('.analyze-btn');
+  const panel = card.querySelector('.breakdown-panel');
+  aBtn.addEventListener('click', ()=>{
+    const opening = !panel.classList.contains('show');
+    panel.classList.toggle('show');
+    aBtn.textContent = opening ? '🔼 إخفاء التحليل' : '🧩 حلّل تكوين الجملة';
+  });
+  chunkGrid.appendChild(card);
+});
+
+const alphaGrid = document.getElementById('alphaGrid');
+alphabet.forEach(l=>{
+  const chip = document.createElement('button');
+  chip.className = 'alpha-chip';
+  chip.textContent = l;
+  chip.style.cursor='pointer'; chip.style.border='1px solid rgba(57,201,194,0.3)';
+  chip.addEventListener('click', ()=>speak(l, 'f'));
+  alphaGrid.appendChild(chip);
+});
+
+/* ============================================================
+   VOCAB: time / place adverbs + personal-state expressions
+============================================================ */
+const adverbsTime = [
+  {de:"heute", ar:"اليوم"}, {de:"morgen", ar:"غداً"}, {de:"gestern", ar:"أمس"},
+  {de:"jetzt", ar:"الآن"}, {de:"bald", ar:"قريباً"}, {de:"immer", ar:"دائماً"},
+  {de:"oft", ar:"غالباً"}, {de:"manchmal", ar:"أحياناً"}, {de:"nie", ar:"أبداً"},
+  {de:"früh", ar:"مبكراً"}, {de:"spät", ar:"متأخراً"},
+];
+const adverbsPlace = [
+  {de:"hier", ar:"هنا"}, {de:"dort", ar:"هناك"}, {de:"da", ar:"هناك/هنا"},
+  {de:"oben", ar:"فوق"}, {de:"unten", ar:"تحت"}, {de:"links", ar:"يسار"},
+  {de:"rechts", ar:"يمين"}, {de:"drinnen", ar:"بالداخل"}, {de:"draußen", ar:"بالخارج"},
+  {de:"überall", ar:"في كل مكان"},
+];
+const personalStates = [
+  {de:"müde", ar:"متعب"}, {de:"glücklich", ar:"سعيد"}, {de:"traurig", ar:"حزين"},
+  {de:"hungrig", ar:"جائع"}, {de:"durstig", ar:"عطشان"}, {de:"krank", ar:"مريض"},
+  {de:"beschäftigt", ar:"مشغول"}, {de:"nervös", ar:"متوتر"}, {de:"zufrieden", ar:"راضٍ"},
+  {de:"gestresst", ar:"مضغوط نفسياً"},
+];
+function renderVocabGrid(containerId, list){
+  const grid = document.getElementById(containerId);
+  list.forEach(item=>{
+    const chip = document.createElement('button');
+    chip.className = 'vocab-chip';
+    chip.innerHTML = `<span class="vc-de">${item.de}</span><span class="vc-ar">${item.ar}</span>`;
+    chip.addEventListener('click', ()=>speak(item.de, 'f'));
+    grid.appendChild(chip);
+  });
+}
+renderVocabGrid('vocabTime', adverbsTime);
+renderVocabGrid('vocabPlace', adverbsPlace);
+renderVocabGrid('vocabState', personalStates);
+
+/* ============================================================
+   5-MINUTE BREAK COUNTDOWN
+============================================================ */
+{
+  let secondsLeft = 5 * 60;
+  const timerEl = document.getElementById('breakTimer');
+  const breathEl = document.getElementById('breathCircle');
+  const skipBtn = document.getElementById('skipBreakBtn');
+  function renderTime(){
+    const m = String(Math.floor(secondsLeft/60)).padStart(2,'0');
+    const s = String(secondsLeft%60).padStart(2,'0');
+    timerEl.textContent = `${m}:${s}`;
+  }
+  renderTime();
+  const breakInterval = setInterval(()=>{
+    secondsLeft--;
+    if (secondsLeft <= 0){
+      clearInterval(breakInterval);
+      secondsLeft = 0;
+      renderTime();
+      timerEl.style.color = 'var(--success)';
+      breathEl.textContent = '✅';
+      breathEl.style.animation = 'none';
+      skipBtn.textContent = 'يلا نبدأ التمارين 🚀';
+      skipBtn.classList.remove('ghost');
+      return;
+    }
+    renderTime();
+  }, 1000);
+  skipBtn.addEventListener('click', ()=>{
+    document.getElementById('exercises').scrollIntoView({behavior:'smooth'});
+  });
+}
+
+/* ============================================================
+   RENDER: Exercises
+============================================================ */
+const container = document.getElementById('examContainer');
+let qCounter = 0;
+
+function catHeader(badge, title){
+  const div = document.createElement('div');
+  div.className = 'ex-cat';
+  div.innerHTML = `<div class="ex-cat-head"><span class="ex-cat-badge">${badge}</span><h3 class="de">${title}</h3></div>`;
+  container.appendChild(div);
+  return div;
+}
+
+/* ---- 1) MCQ ---- */
+catHeader('1 · MCQ', 'اختيار من متعدد — Grammatik & Situationen');
+mcq.forEach((item)=>{
+  qCounter++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-idx">السؤال ${qCounter} / 50</div>
+    <div class="q-text de">${item.q}</div>
+    <div class="opts"></div>
+    <div class="feedback"></div>`;
+  const optsWrap = card.querySelector('.opts');
+  item.opts.forEach((optText, oi)=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.textContent = optText;
+    btn.addEventListener('click', ()=>{
+      const allOpts = optsWrap.querySelectorAll('.opt');
+      allOpts.forEach(o=>o.classList.add('disabled'));
+      const fb = card.querySelector('.feedback');
+      if (oi === item.c){
+        btn.classList.add('sel-correct');
+        card.classList.add('correct');
+        fb.className = 'feedback good show';
+        fb.innerHTML = `<b>${rnd(MOTIV_RIGHT)}</b><br>${item.ex}`;
+        addScore(1);
+      } else {
+        btn.classList.add('sel-wrong');
+        allOpts[item.c].classList.add('reveal-correct');
+        card.classList.add('wrong');
+        fb.className = 'feedback bad show';
+        fb.innerHTML = `<b>${rnd(MOTIV_WRONG)}</b><br>الإجابة الصحيحة: <b>${item.opts[item.c]}</b><br>${item.ex}`;
+      }
+    });
+    optsWrap.appendChild(btn);
+  });
+  container.appendChild(card);
+});
+
+/* ---- 2) Matching ---- */
+catHeader('2 · Zuordnen', 'أسئلة توصيل — طابق الكلمة الألمانية بمعناها');
+{
+  qCounter++;
+  const startIdx = qCounter;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  const shuffledEn = [...matching].sort(()=>Math.random()-0.5);
+  card.innerHTML = `
+    <div class="q-idx">الأسئلة ${startIdx} - ${startIdx+7} / 50</div>
+    <div class="q-text">اضغط على الكلمة الألمانية ثم على معناها الصحيح بالإنجليزية</div>
+    <div class="q-sub">كل زوج صحيح = نقطة واحدة (8 نقاط)</div>
+    <div class="match-wrap">
+      <div class="match-col" id="matchDe"></div>
+      <div class="match-col" id="matchEn"></div>
+    </div>
+    <div class="feedback"></div>`;
+  container.appendChild(card);
+  qCounter += 7; // consumed 8 total (this one + 7 more) counted at once
+
+  const deCol = card.querySelector('#matchDe');
+  const enCol = card.querySelector('#matchEn');
+  let pickedDe = null;
+  let lockedCount = 0;
+
+  matching.forEach((m,i)=>{
+    const b = document.createElement('button');
+    b.className = 'match-item de';
+    b.textContent = m.de;
+    b.dataset.key = m.en;
+    b.addEventListener('click', ()=>{
+      if (b.classList.contains('locked')) return;
+      deCol.querySelectorAll('.match-item').forEach(x=>x.classList.remove('picked'));
+      b.classList.add('picked');
+      pickedDe = b;
+    });
+    deCol.appendChild(b);
+  });
+  shuffledEn.forEach((m)=>{
+    const b = document.createElement('button');
+    b.className = 'match-item';
+    b.textContent = m.en;
+    b.addEventListener('click', ()=>{
+      if (!pickedDe || b.classList.contains('locked')) return;
+      const fb = card.querySelector('.feedback');
+      if (pickedDe.dataset.key === m.en){
+        pickedDe.classList.add('locked'); pickedDe.classList.remove('picked');
+        b.classList.add('locked');
+        lockedCount++;
+        addScore(1);
+        fb.className = 'feedback good show';
+        fb.innerHTML = `<b>${rnd(MOTIV_RIGHT)}</b> — ${lockedCount} من 8 أزواج صحيحة.`;
+        pickedDe = null;
+        if (lockedCount === matching.length){
+          card.classList.add('correct');
+        }
+      } else {
+        b.classList.add('shake'); pickedDe.classList.add('shake');
+        setTimeout(()=>{b.classList.remove('shake'); pickedDe && pickedDe.classList.remove('shake');}, 400);
+        fb.className = 'feedback bad show';
+        fb.innerHTML = `<b>${rnd(MOTIV_WRONG)}</b> هذا ليس الزوج الصحيح — حاول مرة أخرى.`;
+      }
+    });
+    enCol.appendChild(b);
+  });
+}
+
+/* ---- 3) Reading ---- */
+catHeader('3 · Leseverstehen', 'قطعة فهم ونصوص');
+{
+  const passageCard = document.createElement('div');
+  passageCard.className = 'q-card';
+  passageCard.innerHTML = `
+    <div class="q-idx">نص القراءة</div>
+    <div class="de-line" style="font-size:18px; line-height:1.9;">${readingText.de}</div>
+    <div class="dual" style="margin-top:8px;">
+      <span class="ar">${readingText.ar}</span>
+      <span class="en">${readingText.en}</span>
+    </div>
+    <button class="play-btn" style="margin-top:10px;">🔊</button>`;
+  passageCard.querySelector('.play-btn').addEventListener('click', ()=>speakDual(readingText.de));
+  container.appendChild(passageCard);
+
+  reading.forEach(item=>{
+    qCounter++;
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.innerHTML = `
+      <div class="q-idx">السؤال ${qCounter} / 50</div>
+      <div class="q-text de">${item.q}</div>
+      <div class="opts"></div>
+      <div class="feedback"></div>`;
+    const optsWrap = card.querySelector('.opts');
+    item.opts.forEach((optText, oi)=>{
+      const btn = document.createElement('button');
+      btn.className = 'opt';
+      btn.textContent = optText;
+      btn.addEventListener('click', ()=>{
+        const allOpts = optsWrap.querySelectorAll('.opt');
+        allOpts.forEach(o=>o.classList.add('disabled'));
+        const fb = card.querySelector('.feedback');
+        if (oi === item.c){
+          btn.classList.add('sel-correct'); card.classList.add('correct');
+          fb.className = 'feedback good show';
+          fb.innerHTML = `<b>${rnd(MOTIV_RIGHT)}</b><br>${item.ex}`;
+          addScore(1);
+        } else {
+          btn.classList.add('sel-wrong'); allOpts[item.c].classList.add('reveal-correct');
+          card.classList.add('wrong');
+          fb.className = 'feedback bad show';
+          fb.innerHTML = `<b>${rnd(MOTIV_WRONG)}</b><br>الإجابة الصحيحة: <b>${item.opts[item.c]}</b><br>${item.ex}`;
+        }
+      });
+      optsWrap.appendChild(btn);
+    });
+    container.appendChild(card);
+  });
+}
+
+/* ---- 4) Fill in the blanks ---- */
+catHeader('4 · Lücken', 'إكمال الفراغات');
+fillBlank.forEach(item=>{
+  qCounter++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-idx">السؤال ${qCounter} / 50</div>
+    <div class="q-text de">${item.pre} <input type="text" class="fb-input" placeholder="___"> ${item.post}
+      <button class="fb-check btn">تحقق</button></div>
+    <div class="q-sub">تلميح: ${item.hint}</div>
+    <div class="feedback"></div>`;
+  const input = card.querySelector('.fb-input');
+  const checkBtn = card.querySelector('.fb-check');
+  const fb = card.querySelector('.feedback');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (!val) return;
+    checkBtn.disabled = true; input.disabled = true;
+    if (val === item.ans.toLowerCase()){
+      card.classList.add('correct');
+      fb.className = 'feedback good show';
+      fb.innerHTML = `<b>${rnd(MOTIV_RIGHT)}</b><br>${item.ex}`;
+      addScore(1);
+    } else {
+      card.classList.add('wrong');
+      fb.className = 'feedback bad show';
+      fb.innerHTML = `<b>${rnd(MOTIV_WRONG)}</b><br>الإجابة الصحيحة: <b>${item.ans}</b><br>${item.ex}`;
+    }
+  }
+  checkBtn.addEventListener('click', check);
+  input.addEventListener('keydown', e=>{if(e.key==='Enter') check();});
+  container.appendChild(card);
+});
+
+/* ---- 5) Writing ---- */
+catHeader('5 · Schreiben', 'أسئلة كتابة — ترتيب وتعبير');
+writingReorder.forEach(item=>{
+  qCounter++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  const shuffled = [...item.words].sort(()=>Math.random()-0.5);
+  card.innerHTML = `
+    <div class="q-idx">السؤال ${qCounter} / 50</div>
+    <div class="q-text">رتّب الكلمات لتكوين جملة صحيحة:</div>
+    <div class="answer-line"></div>
+    <div class="chip-row"></div>
+    <div style="display:flex; gap:8px;">
+      <button class="btn checkBtn">تحقق</button>
+      <button class="btn ghost resetBtn">إعادة</button>
+    </div>
+    <div class="feedback"></div>`;
+  const answerLine = card.querySelector('.answer-line');
+  const chipRow = card.querySelector('.chip-row');
+  const fb = card.querySelector('.feedback');
+  let built = [];
+  function renderChips(){
+    chipRow.innerHTML = '';
+    shuffled.forEach(w=>{
+      const chip = document.createElement('button');
+      chip.className = 'chip';
+      chip.textContent = w;
+      if (built.includes(w)) chip.classList.add('used');
+      chip.addEventListener('click', ()=>{
+        if (built.includes(w)) return;
+        built.push(w);
+        renderAll();
+      });
+      chipRow.appendChild(chip);
+    });
+  }
+  function renderAnswer(){
+    answerLine.innerHTML = '';
+    built.forEach(w=>{
+      const c = document.createElement('span');
+      c.className = 'chip';
+      c.textContent = w;
+      answerLine.appendChild(c);
+    });
+  }
+  function renderAll(){ renderChips(); renderAnswer(); }
+  renderAll();
+  card.querySelector('.resetBtn').addEventListener('click', ()=>{ built = []; renderAll(); });
+  card.querySelector('.checkBtn').addEventListener('click', ()=>{
+    const cleanAttempt = (built.join(' ')).replace(/[.?]/g,'').trim().toLowerCase();
+    const cleanAns = item.ans.replace(/[.?]/g,'').trim().toLowerCase();
+    if (cleanAttempt === cleanAns){
+      card.classList.add('correct');
+      fb.className = 'feedback good show';
+      fb.innerHTML = `<b>${rnd(MOTIV_RIGHT)}</b><br>${item.ex}`;
+      addScore(1);
+    } else {
+      card.classList.add('wrong');
+      fb.className = 'feedback bad show';
+      fb.innerHTML = `<b>${rnd(MOTIV_WRONG)}</b><br>الترتيب الصحيح: <b>${item.ans}</b><br>${item.ex}`;
+    }
+  });
+  container.appendChild(card);
+});
+/* open writing */
+{
+  qCounter++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-idx">السؤال ${qCounter} / 50</div>
+    <div class="q-text">${writingOpen.prompt}</div>
+    <textarea rows="2" style="width:100%; background:var(--bg-elevated); border:1px solid var(--border); border-radius:10px; color:var(--text); padding:10px; font-family:'Space Grotesk',sans-serif; direction:ltr;" placeholder="Ich heiße ..."></textarea>
+    <div style="margin-top:10px;"><button class="btn revealBtn">أظهر جملة نموذجية وسجّل النقطة</button></div>
+    <div class="feedback"></div>`;
+  const btn = card.querySelector('.revealBtn');
+  const fb = card.querySelector('.feedback');
+  btn.addEventListener('click', ()=>{
+    btn.disabled = true;
+    card.classList.add('correct');
+    fb.className = 'feedback good show';
+    fb.innerHTML = `<b>مثال نموذجي:</b> ${writingOpen.model}<br>قارن جملتك بهذا النموذج — التعبير الحر لا توجد له إجابة واحدة صحيحة، المهم استخدام الفعل الصحيح والترتيب السليم.`;
+    addScore(1);
+  });
+  container.appendChild(card);
+}
+
+/* ---- 6) Speaking ---- */
+catHeader('6 · Sprechen', 'أسئلة تحدث ونطق');
+
+// getUserMedia only ever works in a secure context (https:// or localhost).
+// Opening this file directly (file://) or over plain http:// on mobile means
+// the browser blocks microphone access entirely — so we detect that up front
+// and never show a mic button that can't actually work.
+const micSupported = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.isSecureContext);
+
+speaking.forEach(item=>{
+  qCounter++;
+  const card = document.createElement('div');
+  card.className = 'q-card speak-card';
+  card.innerHTML = `
+    <div>
+      <div class="q-idx">السؤال ${qCounter} / 50</div>
+      <div class="de-line">${item.de}</div>
+      <div class="dual"><span class="ar">${item.ar}</span><span class="en">${item.en}</span></div>
+      <span class="tag" style="margin-top:8px; display:inline-block;">استمع مرتين: صوت رجل ثم صوت امرأة</span>
+      ${micSupported ? '' : '<div class="q-sub" style="margin-top:8px;">🗣️ استمع للنموذج، وكرّر الجملة بصوت عالٍ 3 مرات، وبعدين اضغط "لقد تدربت"</div>'}
+    </div>
+    <div class="speak-actions">
+      <button class="play-btn">🔊</button>
+      ${micSupported ? '<button class="btn ghost micBtn">🎙️ سجّل نفسك</button>' : ''}
+      <button class="btn practiceBtn">لقد تدربت ✅</button>
+    </div>
+    <div class="recorded-audio-wrap" style="width:100%;"></div>
+    <div class="feedback" style="width:100%;"></div>`;
+  card.querySelector('.play-btn').addEventListener('click', ()=>speakDual(item.de));
+
+  /* --- microphone recording (only wired up when actually supported) --- */
+  if (micSupported){
+    const micBtn = card.querySelector('.micBtn');
+    const audioWrap = card.querySelector('.recorded-audio-wrap');
+    const fb = card.querySelector('.feedback');
+    const RecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let mediaRecorder = null, chunks = [], recognizer = null, lastTranscript = null, isRecording = false;
+
+    micBtn.addEventListener('click', async ()=>{
+      if (!isRecording){
+        try{
+          const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+          chunks = [];
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.ondataavailable = e => chunks.push(e.data);
+          mediaRecorder.onstop = ()=>{
+            const blob = new Blob(chunks, {type: mediaRecorder.mimeType || 'audio/webm'});
+            const url = URL.createObjectURL(blob);
+            audioWrap.innerHTML = `<audio controls src="${url}" style="width:100%; margin-top:10px;"></audio>`;
+            stream.getTracks().forEach(t=>t.stop());
+          };
+          mediaRecorder.start();
+          isRecording = true;
+          micBtn.textContent = '⏹️ إيقاف التسجيل';
+          micBtn.classList.add('selected');
+          fb.className = ''; fb.innerHTML = '';
+
+          lastTranscript = null;
+          if (RecognitionCtor){
+            try{
+              recognizer = new RecognitionCtor();
+              recognizer.lang = 'de-DE';
+              recognizer.interimResults = false;
+              recognizer.maxAlternatives = 1;
+              recognizer.onresult = (e)=>{ lastTranscript = e.results[0][0].transcript; };
+              recognizer.onerror = ()=>{ /* silent — recording itself still works */ };
+              recognizer.start();
+            }catch(e){ recognizer = null; }
+          }
+        }catch(e){
+          fb.className = 'feedback bad show';
+          fb.innerHTML = '🎙️ محتاجين إذن الميكروفون عشان تسجّل — اضغط على أيقونة القفل/الميكروفون في المتصفح واسمح بالوصول، وبعدين جرّب تاني.';
+        }
+      } else {
+        isRecording = false;
+        micBtn.textContent = '🎙️ سجّل نفسك';
+        micBtn.classList.remove('selected');
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+        if (recognizer){ try{ recognizer.stop(); }catch(e){} }
+        setTimeout(()=>{
+          if (lastTranscript){
+            const norm = s => s.toLowerCase().replace(/[.,!?…]/g,'').trim();
+            const targetWords = norm(item.de).split(/\s+/).filter(w=>w.length>1);
+            const saidNorm = norm(lastTranscript);
+            const hits = targetWords.filter(w=>saidNorm.includes(w)).length;
+            const ratio = targetWords.length ? hits/targetWords.length : 0;
+            if (ratio >= 0.6){
+              fb.className = 'feedback good show';
+              fb.innerHTML = `<b>${rnd(MOTIV_RIGHT)}</b> سمعنا منك: "${lastTranscript}" — قريب جداً من: <b>${item.de}</b>`;
+            } else {
+              fb.className = 'feedback bad show';
+              fb.innerHTML = `سمعنا منك: "${lastTranscript}" — حاول تنطق أقرب لـ: <b>${item.de}</b>. استمع للنموذج 🔊 وكرّر تاني.`;
+            }
+          } else {
+            fb.className = 'feedback good show';
+            fb.innerHTML = 'تم تسجيل صوتك بنجاح — استمع لنفسك بالأسفل وقارن نطقك بالنموذج 🔊.';
+          }
+        }, 500);
+      }
+    });
+  }
+
+  const pb = card.querySelector('.practiceBtn');
+  pb.addEventListener('click', ()=>{
+    pb.disabled = true;
+    card.classList.add('correct');
+    addScore(1);
+  });
+  container.appendChild(card);
+});
+
+/* ============================================================
+   NAV scroll + active state
+============================================================ */
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).scrollIntoView({behavior:'smooth'});
+  });
+});
+const sections = ['roadmap','chunks','grammar','break','exercises','summary'].map(id=>document.getElementById(id));
+window.addEventListener('scroll', ()=>{
+  let current = sections[0].id;
+  sections.forEach(sec=>{
+    if (window.scrollY + 100 >= sec.offsetTop) current = sec.id;
+  });
+  document.querySelectorAll('.nav-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.target === current);
+  });
+}, {passive:true});
+</script>
+</body>
+</html>
